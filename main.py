@@ -1,8 +1,11 @@
+import os
 from fastapi import FastAPI, Request, Depends
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 from fastapi.encoders import jsonable_encoder
+from fastapi.login import LoginManager
 from sqlalchemy.orm import Session
+from dotenv import load_dotenv
 from db import engine, DBContext
 import models
 
@@ -25,3 +28,11 @@ def index(request: Request):
 @app.get("/tasks")
 def get_tasks(db: Session = Depends(get_DB)):
     return jsonable_encoder(db.query(models.Task).first())
+
+
+@app.get("/login")
+def get_login(request: Request):
+    return templates.TemplateResponse("login.html", {"request": request, "title": "Login"})
+
+
+os.urandom(24).hex()
