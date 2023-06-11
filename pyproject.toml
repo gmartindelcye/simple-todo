@@ -1,0 +1,20 @@
+
+[project]
+name = "simple-todo"
+version = "0.1.0"
+description = "Simple todo-list using fastapi, sqlalchemy, alembic, authentication"
+authors = [
+    {name = "Gabriel Martin del Campo y Eternod", email = "gmartindelcye@gmail.com"},
+]
+dependencies = [
+    "sqlalchemy>=2.0.16",
+    "alembic>=1.11.1",
+    "fastapi>=0.96.1",
+]
+requires-python = ">=3.10"
+readme = "README.md"
+license = {text = "MIT"}
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
